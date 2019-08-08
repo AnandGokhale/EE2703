@@ -17,7 +17,7 @@ else:
     Nx=25 # size along x
     Ny=25 # size along y
     radius=8 #radius of central lead
-    Niter=1500 #number of iterations to perform
+    Niter=1700 #number of iterations to perform
     print("Using defaults. Put all 4 optional parameters if u want to use your own parameters")
 
 #initialize potential
@@ -54,9 +54,7 @@ for k in range(Niter):
     phi = boundary(phi)
     err[k] = np.max(np.abs(phi-phiold))
     if(err[k] == 0):
-        print("Reached steady state at ",k,"Iterations use niter <",k)
-        exit()
-
+        print("Reached steady state at ",k," Iterations")
         break
 
 #plotting Error on semilog

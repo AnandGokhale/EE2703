@@ -92,16 +92,10 @@ def fileread():
                     flag = 0
                 contains.append(l)
             if(AC == tokens[0]  and tokens[1][0] == 'V'):
-                
                 ac_flag = 1
-                try:
-                    w = parse_val(tokens[2])
-                except:
-                    print("Missing Frquency")
-                    exit()
+                w = parse_val(tokens[2])
                 print("Frequency :" , w, ac_flag)
                 w = w* 2*math.pi
-
                 break
         if(len(contains)==0):
             print("Empty File or missing .circuit flag")
@@ -290,24 +284,18 @@ print(b)
 try:
     X = np.linalg.solve(M,b)
 except:
-    print("Unsolvable Circuit")
+    print("Unsolvable Matrix")
     exit()
-
 i=0
 for n in nodes:
-    print("Voltage at Node " + n+" =  " , cmath.polar(X[i]))
+    print("Voltage at Node " + n+" =  " , X[i])
     i = i+1
 for V in voltage_sources:
-    print("Current Through Voltage Source " + V.name + " = ",cmath.polar(X[i]))
+    print("Current Through Voltage Source " + V.name + " = ", X[i])
     i= i+1
 
 
-#list of errors I Catch
-'''
-Unsolvable Matrix
-Node names are alphanumeric
-"Syntax Error in netlist File"
-'''
+
 
 
 

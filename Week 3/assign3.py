@@ -80,7 +80,6 @@ def plot_contour(x,y):
     plt.title('Contour Plot of error')
     plt.xlabel(r'$A$',size=10)
     plt.ylabel(r'$B$',size=10)
-    plt.plot(1.05,-0.105,'ro')
     plt.show()
     return
 
@@ -88,7 +87,7 @@ def estimateAB(M,b):
     return scipy.linalg.lstsq(M,b)
 
 def error_pred(pred,true):
-    return np.sqrt(np.square(pred[0]-true[0])),np.square(pred[1]-true[1])
+    return np.square(pred[0]-true[0]),np.square(pred[1]-true[1])
 
 
 x,y = load("fitting.dat")
@@ -103,8 +102,7 @@ print("Mean_square_error in calcutaion of M = ",error(x,AB))
 
 plot_contour(x,y)
 
-prediction,error,_,_ = estimateAB(generateM(x),g(x))
-
+prediction,error,_,_ = estimateAB(generateM(x),y[:,1])
 print("Prediction  = ",prediction)
 
 print("Error = ",error_pred(prediction,AB))

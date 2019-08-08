@@ -19,14 +19,11 @@ def coscos(x):
 
 def plot_e(upper_limit,lower_limit, N= 10000):
     x = np.linspace(lower_limit,upper_limit,N)
-    f = helper(e)
     plt.title(r'$e^x$ on a semilogy plot')
     plt.xlabel('x')
     plt.ylabel(r'$log(e^x)$')
     plt.grid(True)
     plt.semilogy(x,e(x))
-    plt.semilogy(x,f(x))
-    plt.legend(["true","expected"])
     plt.show()
 
 def plot_coscos(upper_limit,lower_limit, N= 10000):  
@@ -35,10 +32,7 @@ def plot_coscos(upper_limit,lower_limit, N= 10000):
     plt.xlabel('x')
     plt.ylabel(r'$cos(cos(x))$')
     plt.grid(True)
-    f = helper(coscos)
     plt.plot(x,coscos(x))
-    plt.semilogy(x,f(x),'r--')
-    plt.legend(["true","expected"])
     plt.show()
 #this function returns the first n fourier coefficients of the function f using the integration method 
 def FT(n,function):
@@ -107,7 +101,7 @@ def generateAb(x,f):
     return A,f(x)
 
 #setting endpoint = False gives a larger error
-x = np.linspace(0,2*np.pi,401)[:-1]
+x = np.linspace(0,2*np.pi,400,endpoint=True)
 
 Acos,bcos = generateAb(x,coscos)
 Ae,be = generateAb(x,e)
@@ -167,7 +161,7 @@ ce = np.reshape(ce,(51,1))
 #Finding values of the function from the Coefficients obtained using lstsq
 TTT = np.matmul(Ae,ce)
 #plotting results
-x = np.linspace(0,2*np.pi,401)[:-1]
+x = np.linspace(0,2*np.pi,400,endpoint=True)
 plt.title(r"Plot of $e^x$")
 t = np.linspace(-2*np.pi,4*np.pi,10000,endpoint=True)
 plt.semilogy(t,e(t))
@@ -184,7 +178,7 @@ ccos = np.reshape(ccos,(51,1))
 #Finding values of the function from the Coefficients obtained using lstsq
 TTT = np.matmul(Acos,ccos)
 #plotting results
-x = np.linspace(0,2*np.pi,401)[:-1]
+x = np.linspace(0,2*np.pi,400,endpoint=True)
 plt.title(r"Plot of $cos(cos(x))$")
 t = np.linspace(-2*np.pi,4*np.pi,10000,endpoint=True)
 plt.plot(x,TTT,'ro')
