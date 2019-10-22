@@ -33,7 +33,7 @@ padme==1.1.1
 parso==0.3.1
 pexpect==4.0.1
 pickleshare==0.7.5
-Pillow==3.1.2
+Pillow==6.2.0
 plainbox==0.25
 prompt-toolkit==2.0.7
 ptyprocess==0.5
