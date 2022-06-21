@@ -27,7 +27,7 @@ Mako==1.0.3
 MarkupSafe==0.23
 matplotlib==3.0.2
 mpmath==1.1.0
-numpy==1.16.0
+numpy==1.22.0
 oauthlib==1.0.3
 padme==1.1.1
 parso==0.3.1
